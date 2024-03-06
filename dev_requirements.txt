@@ -3,10 +3,9 @@ Django==3.2.16  # keep in sync with docs/requirements.txt
 django-extensions==3.2.1
 
 # Testing/Linting
-bandit==1.7.4
 coverage==6.5.0
-flake8==6.0.0
 isort==5.10.1
+ruff==0.3.0
 tox==3.27.1
 
 # Documentation

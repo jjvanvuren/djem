@@ -8,7 +8,7 @@ from djem.models import (
 )
 
 
-class AuditableTest(Auditable, models.Model):
+class AuditableTest(Auditable, models.Model):  # noqa: DJ008
     """
     This model provides a concrete model with the Auditable mixin for testing.
     """
@@ -21,7 +21,7 @@ class AuditableTest(Auditable, models.Model):
         return user.pk == self.user_created_id
 
 
-class ArchivableTest(Archivable, models.Model):
+class ArchivableTest(Archivable, models.Model):  # noqa: DJ008
     """
     This model provides a concrete model with the Archivable for testing.
     """
@@ -30,7 +30,7 @@ class ArchivableTest(Archivable, models.Model):
     field2 = models.BooleanField(default=True)
 
 
-class VersionableTest(Versionable, models.Model):
+class VersionableTest(Versionable, models.Model):  # noqa: DJ008
     """
     This model provides a concrete model with the Versionable mixin for testing.
     """
@@ -49,7 +49,7 @@ class StaticTest(StaticAbstract):
     field2 = models.BooleanField(default=True)
 
 
-class RelatedArchivableTest(Archivable, models.Model):
+class RelatedArchivableTest(Archivable, models.Model):  # noqa: DJ008
     """
     This model provides a concrete model with relationships to other test
     models, for testing protected/restricted foreign key detection in
@@ -64,7 +64,7 @@ class RelatedArchivableTest(Archivable, models.Model):
     auditable_protected = models.ForeignKey(AuditableTest, on_delete=models.PROTECT, null=True, related_name='+')
 
 
-class RelatedTest(models.Model):
+class RelatedTest(models.Model):  # noqa: DJ008
     """
     This model provides a concrete model with relationships to other test
     models, for testing protected/restricted foreign key detection in
@@ -79,7 +79,7 @@ class RelatedTest(models.Model):
     auditable_protected = models.ForeignKey(AuditableTest, on_delete=models.PROTECT, null=True, related_name='+')
 
 
-class TimeZoneTest(models.Model):
+class TimeZoneTest(models.Model):  # noqa: DJ008
     """
     This model provides some TimeZoneFields for testing.
     """
@@ -94,7 +94,7 @@ class TimeZoneTest(models.Model):
     ))
 
 
-class LogTest(Loggable, models.Model):
+class LogTest(Loggable, models.Model):  # noqa: DJ008
     """
     This model provides a concrete model with the Loggable mixin for testing.
     """
@@ -139,7 +139,7 @@ class UserLogTest(models.Model):
         return False
 
 
-class OLPTest(models.Model):
+class OLPTest(models.Model):  # noqa: DJ008
     """
     This is a contrived model for testing object-level permissions with the
     standard user model.
@@ -165,7 +165,7 @@ class OLPTest(models.Model):
     def _user_can_open_olptest(self, user):
         
         # For tests using inactive and super users (neither should reach this point)
-        assert user.is_active or not user.is_superuser, 'Not supposed to get here'
+        assert user.is_active or not user.is_superuser, 'Not supposed to get here'  # noqa: S101
         
         return True
     
@@ -202,7 +202,7 @@ class OLPTest(models.Model):
         raise PermissionDenied()
 
  
-class UniversalOLPTest(models.Model):
+class UniversalOLPTest(models.Model):  # noqa: DJ008
     """
     This is a contrived model for testing object-level permissions with the
     above custom user model incorporating OLPMixin.
@@ -228,7 +228,7 @@ class UniversalOLPTest(models.Model):
     def _user_can_open_universalolptest(self, user):
         
         # For tests using inactive and super users (neither should reach this point)
-        assert user.is_active or not user.is_superuser, 'Not supposed to get here'
+        assert user.is_active or not user.is_superuser, 'Not supposed to get here'  # noqa: S101
         
         return True
     

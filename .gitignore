@@ -12,6 +12,7 @@ docs/_build/
 
 # Testing
 htmlcov
+.ruff_cache/
 
 # Distribution/packaging
 dist/
